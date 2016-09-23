@@ -13,8 +13,8 @@ url: "fymote.me" # the base hostname & protocol for your site
 # Social links.
 # Replace the word 'example' with your username if you want to include the icon in the left sidebar
 # Delete the word 'example' if you don't want to include the icon in the left sidebar
-
-highlighter: rouge
+markdown: redcarpet
+highlighter: pygments
 github_username:      fymote  # Replace this with your GitHub username
 
 # Build settings
