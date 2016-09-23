@@ -16,3 +16,13 @@ def welcome():
   }
   urllib.urlencode(params)
 {% endhighlight %}
+
+``` python
+import urllib
+def welcome():
+  url="www.example.com"
+  params = {
+    "date":"2015-02-25"
+  }
+  urllib.urlencode(params)
+
