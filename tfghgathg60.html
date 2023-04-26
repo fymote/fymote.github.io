@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>表格</title>
+	<style>
+		table {
+			border-collapse: collapse;
+			width: 100%;
+			background: white;
+      border: 2px solid white;
+		}
+
+		td {
+			border: 10px solid white;
+			text-align: center;
+			padding: 10px;
+			color: black;
+      border-radius: 30px;
+		}
+
+		.filled {
+			background-color:  #1B807C;
+      		color:white
+		}
+	</style>
+	<script>
+
+		fetch('https://script.google.com/macros/s/AKfycbySI3jrB8T1zT2rMSmXked-3pe967Tt__dNQtmTaUIvYHyQewRjsAeEgLZ6PwM73xS6/exec')
+		  .then(response => response.json())
+		  .then(data => {
+		    console.log(data);
+		    // 在網頁上顯示數據
+		 // document.getElementById('data').textContent = JSON.stringify(data);
+		  let table = document.getElementById('myTable');
+
+		// 遍歷數據並在相應的單元格中顯示值
+		for (let i = 0; i < data.length; i++) {
+		  let row = data[i][1];
+		  let col = data[i][0];
+		  
+		  let row_index = Math.floor((col - 1) / 10)
+		  let col_index = (col - 1) % 10
+		  
+		  //let cell = table.rows[i].cells[col];
+		  let cell = table.rows[row_index].cells[col_index];
+		  //cell.textContent = col;
+
+		  // 如果值不為 0，則塗上顏色
+		  if (row > 0) {
+		    cell.classList.add('filled');
+		  }
+		}
+		})
+		  .catch(error => {
+		  console.error(error);
+		});
+
+
+
+	</script>
+</head>
+<body>
+<table id="myTable">
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+			<td>4</td>
+			<td>5</td>
+			<td>6</td>
+			<td>7</td>
+			<td>8</td>
+			<td>9</td>
+			<td>10</td>
+		</tr>
+		<tr>
+			<td>11</td>
+			<td>12</td>
+			<td>13</td>
+			<td>14</td>
+			<td>15</td>
+			<td>16</td>
+			<td>17</td>
+			<td>18</td>
+			<td>19</td>
+			<td>20</td>
+		</tr>
+		<tr>
+			<td>21</td>
+			<td>22</td>
+			<td>23</td>
+			<td>24</td>
+			<td>25</td>
+			<td>26</td>
+			<td>27</td>
+			<td>28</td>
+			<td>29</td>
+			<td>30</td>
+		</tr>
+		<tr>
+			<td>31</td>
+			<td>32</td>
+			<td>33</td>
+			<td>34</td>
+			<td>35</td>
+			<td>36</td>
+			<td>37</td>
+			<td>38</td>
+			<td>39</td>
+			<td>40</td>
+		</tr>
+		<tr>
+			<td>41</td>
+			<td>42</td>
+			<td>43</td>
+			<td>44</td>
+			<td>45</td>
+			<td>46</td>
+			<td>47</td>
+			<td>48</td>
+			<td>49</td>
+			<td>50</td>
+		</tr>
+		<tr>
+			<td>51</td>
+			<td>52</td>
+			<td>53</td>
+			<td>54</td>
+			<td>55</td>
+			<td>56</td>
+			<td>57</td>
+			<td>58</td>
+			<td>59</td>
+			<td>60</td>
+		</tr>
+
+	</table>
+  	<div id="data"></div>
+</body>
