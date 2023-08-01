@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>紙娃娃</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+
+        .options {
+            text-align: center;
+        }
+
+        .doll {
+            position: relative;
+        }
+
+        /* 新增衣服樣式的CSS */
+        .clothes-preview {
+            display: inline-block;
+            margin: 5px;
+            cursor: pointer;
+            width: 100px;
+            height: 100px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        #clothesImage {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+/*            display: none;*/
+        }
+
+        #dressImage {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+/*            display: none;*/
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="options">
+            <h3>選擇衣服樣式：</h3>
+            <div class="clothes-preview" style="background-image: url('images/style1.png');" onclick="changeClothes('images/style1','clothes')"></div>
+            <div class="clothes-preview" style="background-image: url('images/style2.png');" onclick="changeClothes('images/style2', 'clothes')"></div>
+            <h3>選擇下半身樣式：</h3>
+            <div class="clothes-preview" style="background-image: url('images/down1.png');" onclick="changeClothes('images/down1', 'dress')"></div>
+            <div class="clothes-preview" style="background-image: url('images/down2.png');" onclick="changeClothes('images/down2', 'dress')"></div>
+            <!-- 在這裡添加更多的衣服樣式預覽 -->
+        </div>
+        <div class="doll">
+            <img id="dollImage" src="images/default.png" alt="人像">
+            <img id="clothesImage" src="" alt="">
+            <img id="dressImage" src="" alt="">
+        </div>
+    </div>
+
+    <script>
+        let originalImageSrc; // 儲存原始人像的src
+
+        function previewClothes(style) {
+            const dollImage = document.getElementById("dollImage");
+            const clothesImage = document.getElementById("clothesImage");
+            clothesImage.src = style + ".png";
+            clothesImage.style.display = "inline-block";
+        }
+
+        function clearPreview() {
+            const clothesImage = document.getElementById("clothesImage");
+            clothesImage.src = "";
+            clothesImage.style.display = "none";
+        }
+
+        function changeClothes(style, part) {
+            const clothesImage = document.getElementById( part + "Image");
+            clothesImage.src = style + ".png";
+        }
+        // function changedressClothes(style) {
+        //     const dressImage = document.getElementById("dressImage");
+        //     dressImage.src = style + ".png";
+        // }
+        // 顯示預覽衣服樣式（可放在頁面載入後）
+        // window.onload = function () {
+        //     previewClothes('style1'); // 預設顯示樣式1
+        // };
+    </script>
+</body>
+</html>
